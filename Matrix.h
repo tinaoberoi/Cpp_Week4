@@ -124,6 +124,13 @@ namespace mpcs51044
 		return data[0][0];
 	}
 
+	template <>
+	double
+	Matrix<2, 2>::determinant() const
+	{
+		return (data[0][0]*data[1][1] - data[0][1]*data[1][0]);
+	}
+
 	template <int a, int b>
 	inline Matrix<a, b>
 	operator+(Matrix<a, b> const &l, Matrix<a, b> const &r)
