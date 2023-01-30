@@ -19,6 +19,7 @@ int main()
     // Reason why for_each(names.begin(),names.end(),maxf) did not work
     // Foreach is creating a coopy of maxf for itself, which destroys once the execution of foreach is over.
     // As a result if we pass this by reference we can modify the maxf value.
+    // The fix is as follows:
     for_each(names.begin(), names.end(), [&](string name) {maxf(name);});
     cout << maxf.maxlen << endl;
     return 0;
