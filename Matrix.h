@@ -51,6 +51,18 @@ namespace mpcs51044
 			return data[x][y];
 		}
 
+		inline void
+		operator+=(Matrix<rows, cols> const &r)
+		{
+			for (int i = 0; i < rows; i++)
+			{
+				for (int j = 0; j < cols; j++)
+				{
+					data[i][j] += r(i, j);
+				}
+			}
+		}
+
 		inline friend ostream &
 		operator<<(ostream &os, const Matrix<rows, cols> &m)
 		{
@@ -144,19 +156,6 @@ namespace mpcs51044
 			}
 		}
 		return result;
-	}
-
-	template <int a, int b>
-	inline void
-	operator+=(Matrix<a, b> &l, Matrix<a, b> const &r)
-	{
-		for (int i = 0; i < a; i++)
-		{
-			for (int j = 0; j < b; j++)
-			{
-				l(i, j) += r(i, j);
-			}
-		}
 	}
 }
 #endif
